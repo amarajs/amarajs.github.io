@@ -1,0 +1,39 @@
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+}
+
+main {
+    width: calc(100% / 3);
+}
+
+aside {
+    width: calc(100% / 3 * 2);
+    padding: 1em;
+    border-left: 3px solid #ddd;
+    height: calc(100% - 2em);
+}
+
+button[download] {
+    margin-right: .5em;
+}
+
+.hide {
+    display: none;
+}
+
+p.note, p.downloaded {
+    outline: #888 solid 2px;
+    background-color: #ffc;
+    text-align: justify;
+    padding: 1em;
+}
+
+p.downloaded {
+    background-color: #dec;
+}

@@ -1,0 +1,38 @@
+h1 {
+    background-color: #e5e5e5;
+    border-bottom: 1px solid #bbb;
+    margin: 0;
+    padding: 0.5em;
+}
+#todos {
+    list-style: none;
+    padding: 0;
+}
+#todos > li {
+    padding: .5em;
+    display: flex;
+    align-items: center;
+}
+#todos > li:hover {
+    outline: #5B9DD9 auto 5px;
+    background-color: #5b9dd975;
+}
+#todos > li > span {
+    flex-grow: 1;
+}
+#todos input[type="checkbox"] {
+    order: -1;
+    margin-right: .25em;
+    zoom: 1.5;
+}
+span[role="link"],
+button.pure-button {
+    font-size: 14pt;
+}
+.button-xsmall {
+    padding: .2em .5em;
+}
+.button-error {
+    background-color: #e9322d;
+    color: #fff;
+}
