@@ -1,22 +1,48 @@
 html, body {
     height: 100%;
+    min-height: auto;
     padding: 0;
     margin: 0;
 }
 
-body {
-    display: flex;
-}
-
-main {
-    width: calc(100% / 3);
-}
-
 aside {
-    width: calc(100% / 3 * 2);
     padding: 1em;
-    border-left: 3px solid #ddd;
-    height: calc(100% - 2em);
+    border-top: 1px solid #aaa;
+}
+
+aside h2 {
+    margin-top: 0;
+}
+
+main:empty:after {
+    content: 'todo app placeholder';
+    text-align: center;
+    display: block;
+    padding: 1em;
+    border: 2px dashed #ccc;
+    margin: 1em;
+}
+
+@media only screen and (min-width: 600px) {
+
+    body {
+        display: flex;
+    }
+    
+    main {
+        width: calc(100% / 3);
+        min-width: 350px;
+        min-height: fit-content;
+    }
+    
+    aside {
+        width: calc(100% / 3 * 2);
+        border-top: none;
+        border-left: 3px solid #ddd;
+        height: calc(100% - 2em);
+        min-height: fit-content;
+    }
+    
 }
 
 button[download] {

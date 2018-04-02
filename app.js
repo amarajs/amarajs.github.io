@@ -319,7 +319,7 @@ guide
             h('p.hide', `There are 2 features we just added in the downloaded script that you should examine closely.`),
             h('p.hide', `The first is implementing the "navigate" action when a list item is clicked (or the [enter] key is pressed).`),
             h('p.hide', `The second is making sure the currently active item is marked "selected" when loading the page to an existing route.`),
-            h('p.hide', 'Go ahead and click on an item, then refresh this page. Once you download the routing feature again, the previously selected item should automatically activate.')
+            h('p.hide', ['You can try this out for yourself. Click on an item, refresh this page, and then ', h('em', 'click the download button again.'), 'The previously selected item should automatically activate.'])
         ])
         .concat(getContinueDOM('routing', 'edit-scaffold'))
     ))

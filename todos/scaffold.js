@@ -4,7 +4,7 @@ todos
     // scaffold
     .add(dom(Selectors.APP, () => ([
         h('h1', 'AmaraJS / TODO'),
-        h('form#create.pure-form', h('fieldset')),
+        h('form#create.pure-form', {onsubmit: () => false}, h('fieldset')),
         h(Selectors.TODOLIST),
         h(Selectors.DETAILS)
     ])))

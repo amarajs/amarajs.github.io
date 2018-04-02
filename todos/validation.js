@@ -8,6 +8,9 @@ todos
             e.stopPropagation();
             const newValid = e.target.value.length > 0;
             newValid !== valid && e.dispatch(Actions.valid(newValid));
+        },
+        'amara:add': (e) => {
+            e.dispatch(Actions.valid(e.target.value.length > 0));
         }
     })))
 
