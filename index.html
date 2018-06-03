@@ -410,28 +410,47 @@ amara
 
 <h4 id="decorators">Decorators</h4>
 
-<p>Some developers may still prefer to group their features into classes. Class members could integrate with AmaraJS using decorators. Under the hood, those decorators would simply construct the object literals, stitching together the class target selector with optional selectors on plugin decorators.</p>
+<p>Some developers may still prefer to group their features into classes. Using <a href="https://github.com/amarajs/decorators">@amarajs/decorators</a> makes this easy:</p>
 
 <pre><code contenteditable spellcheck="false" class="javascript language-javascript">import { targets, connect, routes, dom } from '@amarajs/decorators';
 
 @targets('#main')
-export default class Topics {
+export default class Router {
 
     @routes()
     function getRoutes() {
         return ['topics/:topic'];
     }
 
+    @dom('&amp;[route^="topics/"]')
     @connect({
         topics: ({state}) =&gt; state.topics,
         topic: ({routeParams}) =&gt; routeParams.topic
     })
-    @dom('&amp;[route^="topics/"]')
     function getDOM({topics, topic}) {
         return topics[topic];
     }
 
 }
+</code></pre>
+
+When a new instance of the Router class is constructed, the following code will be executed under the hood:
+
+<pre><code contenteditable spellcheck="false" class="javascript language-javascript">amara.add({
+    type: 'route',
+    targets: ['#main'],
+    apply: () => ['topics/:topic']
+});
+
+amara.add({
+    type: 'dom',
+    targets: ['#main[route^="topics/"]'],
+    args: {
+        topics: ({state}) => state.topics,
+        topic: ({routeParams}) => routeParams.topic
+    },
+    apply: ({topics, topic}) => topics[topic]
+});
 </code></pre>
 
 <h3 id="bestpractices">Best Practices</h3>
